@@ -1,0 +1,29 @@
+<section class="pixel-box">
+  <h1>Mochila</h1>
+
+  @if (carrito.length === 0) {
+    <div class="centro">
+      <p>No tenes items</p>
+      <button class="pixel-button" routerLink="/productos">
+        Buscar items
+      </button>
+    </div>
+  }
+
+  @for (item of carrito; track $index) {
+    <div class="pixel-card">
+      <h3 [class]="item.rareza">{{ item.nombre }}</h3>
+      <p>Poder: {{ item.poder }}</p>
+      <p>Precio: {{ item.precio }}</p>
+
+      <button class="pixel-button">Eliminar</button>
+    </div>
+  }
+
+  @if (carrito.length > 0) {
+    <div>
+      <h2>Total: {{ total }}</h2>
+      <button class="pixel-button">Comprar</button>
+    </div>
+  }
+</section>

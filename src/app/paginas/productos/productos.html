@@ -1,0 +1,27 @@
+<section class="pixel-box">
+  <h1>Items</h1>
+
+  <div class="grid">
+    @for (item of productos; track item.nombre) {
+      <div class="pixel-card">
+
+        <h3 [class]="item.rareza" [class.legendario-brillo]="item.rareza === 'legendario'"> {{ item.nombre }} </h3>
+
+        <p>Poder: {{ item.poder }}</p>
+
+        <p>
+          Rareza:
+          <span [class]="item.rareza">
+            {{ item.rareza }}
+          </span>
+        </p>
+
+        <p>Precio: {{ item.precio }}</p>
+
+        <button class="pixel-button">Añadir</button>
+        <button class="pixel-button">Guardar</button>
+
+      </div>
+    }
+  </div>
+</section>

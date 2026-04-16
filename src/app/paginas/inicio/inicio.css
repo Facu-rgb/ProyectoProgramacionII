@@ -1,0 +1,30 @@
+.container{
+	display: flex;
+	justify-content: center;
+}
+.btn-action{
+	color: #f8b460;
+}
+.btn-action:hover{
+	background-color: crimson;
+}
+.precio{
+background-color: rgb(7, 166, 240);
+color: white;
+}
+#title{
+	text-align: center;
+	margin: 1px;
+	color: white;
+}
+.carousel {
+  max-width: 90%;            /* hace que no ocupe todo el ancho */
+  margin: 20px auto;         /* lo centra y da espacio arriba y abajo */
+  border-radius: 10px;       /* esquinas suaves */
+  overflow: hidden;          /* oculta las partes de la imagen que sobresalgan */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra sutil para destacarlo */
+}
+
+.carousel img {
+  object-fit: cover;         /* mantiene proporción y rellena el área */
+}

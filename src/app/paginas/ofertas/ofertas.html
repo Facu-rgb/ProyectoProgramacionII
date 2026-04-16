@@ -1,0 +1,17 @@
+<section class="pixel-box">
+  <h1>Misiones</h1>
+
+  <div class="grid">
+    @for (oferta of ofertas; track oferta.nombre) {
+      <div class="pixel-card">
+
+        <h3>{{ oferta.nombre }}</h3>
+        <p>Dificultad: {{ oferta.dificultad }}</p>
+        <p>Recompensa: {{ oferta.recompensa }}</p>
+
+        <button class="pixel-button">Aceptar</button>
+
+      </div>
+    }
+  </div>
+</section>
