@@ -1,0 +1,75 @@
+<section class="pixel-box">
+  <h1>Mochila</h1>
+
+  <!-- PODER TOTAL -->
+  <h2>Poder total: {{ poderTotal }}</h2>
+
+  <!-- SLOTS EQUIPADOS -->
+  <div class="grid">
+    
+    <div class="pixel-card">
+      <h3>Arma</h3>
+      @if (equipo.arma) {
+        <p [class]="equipo.arma.rareza">
+          {{ equipo.arma.nombre }}
+        </p>
+      } @else {
+        <p>Vacio</p>
+      }
+    </div>
+
+    <div class="pixel-card">
+      <h3>Secundaria</h3>
+      @if (equipo.secundaria) {
+        <p [class]="equipo.secundaria.rareza">
+          {{ equipo.secundaria.nombre }}
+        </p>
+      } @else {
+        <p>Vacio</p>
+      }
+    </div>
+
+    <div class="pixel-card">
+      <h3>Armadura</h3>
+      @if (equipo.armadura) {
+        <p [class]="equipo.armadura.rareza">
+          {{ equipo.armadura.nombre }}
+        </p>
+      } @else {
+        <p>Vacio</p>
+      }
+    </div>
+
+    <div class="pixel-card">
+      <h3>Talisman</h3>
+      @if (equipo.talisman) {
+        <p [class]="equipo.talisman.rareza">
+          {{ equipo.talisman.nombre }}
+        </p>
+      } @else {
+        <p>Vacio</p>
+      }
+    </div>
+
+  </div>
+
+  <!-- INVENTARIO -->
+  
+  <div class="grid">
+    @for (item of inventario; track item.id) {
+      <div class="pixel-card">
+
+        <h3 [class]="item.rareza">{{ item.nombre }}</h3>
+        <p>Tipo: {{ item.tipo }}</p>
+        <p>Poder: {{ item.poder }}</p>
+
+        <button 
+          class="pixel-button"
+          (click)="equipar(item)">
+          Equipar
+        </button>
+
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<section class="pixel-box">
+  <h1>Inventario</h1>
+
+  @if (favoritos.length === 0) {
+    <div class="centro">
+      <p>No guardaste items</p>
+    </div>
+  }
+
+  @for (item of favoritos; track item.nombre) {
+    <div class="pixel-card">
+      <h3 [class]="item.rareza">{{ item.nombre }}</h3>
+      <p>Rareza: {{ item.rareza }}</p>
+
+      <button class="pixel-button">Equipar</button>
+
+      <button 
+        class="pixel-button"
+        (click)="eliminar(item.nombre)">
+        Eliminar
+      </button>
+    </div>
+  }
+</section>
