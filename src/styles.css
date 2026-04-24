@@ -1,14 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
 /* =========================
-   RPG THEME - GLOBAL
+   GLOBAL
    ========================= */
-
-/* Fuente pixel */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -19,9 +14,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Body */
 body {
   background-color: #1a1a1a;
+
+  background-image: url('https://storage.ko-fi.com/cdn/useruploads/display/6ede6ca8-cf9c-400c-aab2-01e17023f17d_forest-export.gif'); /* GIF */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed; /* opcional */
+
   color: #ffffff;
   font-family: 'Press Start 2P', monospace;
   image-rendering: pixelated;
@@ -29,13 +31,28 @@ body {
 }
 
 /* =========================
-     CONTENEDORES
+   LAYOUT
+   ========================= */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido {
+  flex: 1;
+}
+
+/* =========================
+   CONTENEDORES
    ========================= */
 .pixel-box {
   background: #2b2b2b;
   padding: 20px;
-  margin: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
   border: 4px solid #000;
+  position: relative; /* IMPORTANTE para GIF */
 
   box-shadow:
     4px 4px 0 #000,
@@ -43,10 +60,10 @@ body {
 }
 
 /* =========================
-    CARDS
+   CARDS
    ========================= */
 .pixel-card {
-  background: #3a3a3a;
+  background: rgba(58, 58, 58, 0.75); /* transparencia */
   padding: 15px;
   margin: 10px;
   border: 3px solid #000;
@@ -55,24 +72,32 @@ body {
     3px 3px 0 #000,
     6px 6px 0 #777;
 
-  transition: transform 0.1s;
-
-   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
+
+  transition: transform 0.1s;
 }
 
 .pixel-card:hover {
   transform: translate(-2px, -2px);
+  background: rgba(58, 58, 58, 0.9); /* menos transparente al pasar el mouse */
+}
+
+.pixel-card h3 {
+  font-size: clamp(10px, 2vw, 14px);
+  line-height: 1.3;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* =========================
-    BOTONES
+   BOTONES
    ========================= */
 .pixel-button {
   font-family: inherit;
-  background: #00aa00;
+  background: #000000;
   color: white;
   border: 3px solid #000;
   padding: 10px;
@@ -93,36 +118,36 @@ body {
 }
 
 /* =========================
-    NAVBAR
+   NAVBAR
    ========================= */
-
 .pixel-nav {
-  padding: 15px;
-  border-bottom: 4px solid #555;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 
-  /* imagen pixel */
-  background-image: url(/public/assets/8bit-pixel-graphic-blue-sky-background-with-clouds-vector.jpg);
-  background-size: cover;
+  padding: 10px;
+  border-bottom: 4px solid #555;
+
+  position: relative;
+  background-image: url('https://t3.ftcdn.net/jpg/05/49/87/48/360_F_549874832_odaIb0fUsf27oYS6qXj392f5673mRSW5.jpg');
   background-repeat: repeat;
+  background-size: contain;
 }
 
+.pixel-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
 
-   /*.pixel-nav {
-  background: #000;
-  padding: 15px;
-  border-bottom: 4px solid #555;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}*/
+.pixel-nav > * {
+  position: relative;
+}
 
 .pixel-nav a {
-  color: #00ffcc;
+  color: #ffffff;
   text-decoration: none;
   margin: 0 10px;
 }
@@ -132,135 +157,8 @@ body {
 }
 
 /* =========================
-    GRID
+   NAV RESPONSIVE
    ========================= */
-.grid {
-  display: grid;
-  gap: 16px;
-
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(220px, 1fr)
-  );
-}
-
-/* =========================
-    CENTRADO
-   ========================= */
-.centro {
-  text-align: center;
-}
-
-/* =========================
-    INPUTS
-   ========================= */
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-
-  background: #111;
-  color: #fff;
-  border: 3px solid #000;
-
-  font-family: inherit;
-
-  box-shadow: 2px 2px 0 #000;
-}
-
-/* =========================
-    RAREZA RPG
-   ========================= */
-.comun {
-  color: #cccccc;
-}
-
-.raro {
-  color: #4da6ff;
-}
-
-.epico {
-  color: #b84dff;
-}
-
-.legendario {
-  color: #ffcc00;
-}
-
-/* =========================
-    FOOTER
-   ========================= */
-.pixel-footer {
-  background: #000;
-  border-top: 4px solid #555;
-  padding: 20px;
-  text-align: center;
-  margin-top: 40px;
-}
-
-/* =========================
-    EFECTO ESPECIAL
-   ========================= */
-.legendario-brillo {
-  animation: brillo 1s infinite alternate;
-}
-
-@keyframes brillo {
-  from {
-    text-shadow: 0 0 5px #ffcc00;
-  }
-  to {
-    text-shadow: 0 0 15px #ffcc00;
-  }
-}
-
-.pixel-card h3 {
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  font-size: clamp(10px, 2vw, 14px);
-  line-height: 1.3;
-  word-break: break-word;
-}
-
-/* contenedor principal */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* contenido crece */
-.contenido {
-  flex: 1;
-}
-
-.pixel-box {
-  max-width: 1200px;
-  margin: 20px auto;
-}
-
-@media (max-width: 600px) {
-  .pixel-box {
-    margin: 10px;
-  }
-
-  .pixel-card {
-    padding: 10px;
-  }
-}
-
-/* NAV BASE */
-.pixel-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
-  padding: 10px;
-}
-
-/* BOTÓN MOBILE */
 .menu-toggle {
   display: none;
   background: #00aa00;
@@ -268,19 +166,21 @@ input, textarea {
   padding: 8px;
   font-family: inherit;
   cursor: pointer;
+
+  box-shadow: 3px 3px 0 #000;
 }
 
-/* LINKS */
+.menu-toggle:active {
+  transform: translate(2px,2px);
+  box-shadow: none;
+}
+
 .nav-links {
   display: flex;
   gap: 10px;
 }
 
-/* ---------------------- */
-/*  MOBILE */
-/* ---------------------- */
 @media (max-width: 768px) {
-
   .menu-toggle {
     display: block;
   }
@@ -302,4 +202,157 @@ input, textarea {
   .nav-links a {
     padding: 8px 0;
   }
+}
+
+/* =========================
+   GRID
+   ========================= */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* =========================
+   GIF DECORATIVO (NUEVO)
+   ========================= */
+.pixel-banner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  pointer-events: none;
+}
+
+.pixel-banner img {
+  width: 120px;
+  height: auto;
+  image-rendering: pixelated;
+  opacity: 0.9;
+
+  animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+/* =========================
+   UTILIDADES
+   ========================= */
+.centro {
+  text-align: center;
+}
+
+/* =========================
+   INPUTS
+   ========================= */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+
+  background: #111;
+  color: #fff;
+  border: 3px solid #000;
+
+  font-family: inherit;
+
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* =========================
+   RAREZA
+   ========================= */
+.comun { color: #cccccc; }
+.raro { color: #4da6ff; }
+.epico { color: #b84dff; }
+.legendario { color: #ffcc00; }
+
+/* =========================
+   FOOTER
+   ========================= */
+.pixel-footer {
+  background: #000;
+  border-top: 4px solid #555;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* =========================
+   EFECTOS
+   ========================= */
+.legendario-brillo {
+  animation: brillo 1s infinite alternate;
+}
+
+@keyframes brillo {
+  from { text-shadow: 0 0 5px #ffcc00; }
+  to { text-shadow: 0 0 15px #ffcc00; }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 600px) {
+  .pixel-box {
+    margin: 10px;
+  }
+
+  .pixel-card {
+    padding: 10px;
+  }
+
+  .pixel-banner img {
+    width: 80px;
+  }
+}
+/* =========================
+   FONDOS RPG (FIX REAL)
+   ========================= */
+
+.bg-items,
+.bg-taberna,
+.bg-misiones {
+  position: relative;
+  overflow: hidden;
+}
+
+/* capa fondo */
+.bg-items::before,
+.bg-taberna::before,
+.bg-misiones::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover; 
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* gifs */
+.bg-items::before {
+  background-image: url('https://pixeljoint.com/files/icons/full/dwarf_320.gif');
+}
+
+.bg-taberna::before {
+  background-image: url('https://i.pinimg.com/originals/3a/05/fa/3a05faad64800e1cce421f4c013b1bc4.gif');
+}
+
+.bg-misiones::before {
+  background-image: url('https://64.media.tumblr.com/5d37ab2aa782462c7aa092f7bd0d27cb/2f374d07287b003b-f4/s1280x1920/fe094893d79e09d668e1705e8b9144964f38ce75.gif');
+}
+
+/* contenido arriba */
+.bg-items > *,
+.bg-taberna > *,
+.bg-misiones > * {
+  position:relative;
+  z-index: 1;
 }
