@@ -1,0 +1,63 @@
+<!-- HERO -->
+<section class="pixel-box centro hero-card fade-in">
+  <h1>Bienvenido aventurero</h1>
+  <p>Explora el mercado del reino</p>
+
+  <div class="hero-actions">
+    <button class="pixel-button" routerLink="/productos">
+      Ver items
+    </button>
+
+    <button class="pixel-button" routerLink="/ofertas">
+      Ver misiones
+    </button>
+  </div>
+</section>
+
+<!-- EVENTOS -->
+
+<section class="eventos-full fade-in delay-1">
+
+  <h2 class="centro titulo-eventos">Eventos activos</h2>
+  <div id="carouselEventos" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- indicadores -->
+    <div class="carousel-indicators">
+      @for (evento of eventos; track evento.titulo; let i = $index) {
+        <button 
+          type="button"
+          data-bs-target="#carouselEventos"
+          [attr.data-bs-slide-to]="i"
+          [class.active]="i === 0">
+        </button>
+      }
+    </div>
+
+    <!-- slides -->
+    <div class="carousel-inner">
+      @for (evento of eventos; track evento.titulo; let i = $index) {
+        <div class="carousel-item" [class.active]="i === 0">
+          
+          <img [src]="evento.imagen" class="img-evento">
+          
+          <div class="carousel-caption pixel-caption">
+            <h3>{{ evento.titulo }}</h3>
+            <p>{{ evento.descripcion }}</p>
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- controles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventos" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselEventos" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+</section>

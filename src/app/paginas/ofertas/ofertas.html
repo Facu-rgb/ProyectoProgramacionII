@@ -1,0 +1,31 @@
+<section class="pixel-box bg-misiones">
+  <h1>Misiones</h1>
+
+  <div class="grid">
+    @for (oferta of ofertas; track oferta.nombre) {
+      <div class="pixel-card">
+        <h3>{{ oferta.nombre }}</h3>
+        <p>Dificultad: {{ oferta.dificultad }}</p>
+        <p>Recompensa: {{ oferta.recompensa }}</p>
+        <button class="pixel-button">Aceptar</button>
+      </div>
+    }
+  </div>
+</section>
+
+
+<!-- NUEVA SECCIÓN -->
+<section class="pixel-box bg-misiones-avanzadas">
+  <h2>Misiones Avanzadas</h2>
+
+  <div class="grid">
+    @for (mision of misionesAvanzadas; track mision.nombre) {
+      <div class="pixel-card">
+        <h3>{{ mision.nombre }}</h3>
+        <p>Dificultad: {{ mision.dificultad }}</p>
+        <p>Recompensa: {{ mision.recompensa }}</p>
+        <button class="pixel-button">Aceptar</button>
+      </div>
+    }
+  </div>
+</section>

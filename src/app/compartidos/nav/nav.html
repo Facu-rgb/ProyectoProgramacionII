@@ -1,0 +1,25 @@
+<nav class="pixel-nav">
+
+  <div class="logo">
+    <a routerLink="/inicio">PixelShop</a>
+  </div>
+
+  <!-- botón mobile -->
+  <button class="menu-toggle" (click)="toggleMenu()">
+    Menu
+  </button>
+
+  <!-- links -->
+  <div class="nav-links" [class.open]="menuAbierto">
+
+    <a routerLink="/inicio" (click)="cerrar()">Inicio</a>
+    <a routerLink="/productos" (click)="cerrar()">Items</a>
+    <a routerLink="/ofertas" (click)="cerrar()">Misiones</a>
+    <a routerLink="/contacto" (click)="cerrar()">Taberna</a>
+
+    <a routerLink="/favoritos" (click)="cerrar()">Inventario</a>
+    <a routerLink="/carrito" (click)="cerrar()">Mochila</a>
+
+  </div>
+
+</nav>
