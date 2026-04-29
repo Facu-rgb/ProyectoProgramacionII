@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
+<<<<<<< HEAD
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
 })
@@ -26,3 +27,10 @@ export class Inicio {
   ];
 
 }
+=======
+  imports: [],
+  templateUrl: './inicio.html',
+  styleUrl: './inicio.css',
+})
+export class Inicio {}
+>>>>>>> 3c94922a0bcf220d1d6604366ce27a4084c3d0b0

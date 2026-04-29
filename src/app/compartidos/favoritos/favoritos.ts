@@ -17,6 +17,7 @@ export class Favoritos {
     { nombre: 'Arco magico', rareza: 'epico' }
   ];
 
+<<<<<<< HEAD
   eliminar(nombre: string) {
     this.favoritos = this.favoritos.filter(
       item => item.nombre !== nombre
@@ -47,3 +48,6 @@ export class Favoritos {
   ];
 
 }*/
+=======
+}
+>>>>>>> 3c94922a0bcf220d1d6604366ce27a4084c3d0b0

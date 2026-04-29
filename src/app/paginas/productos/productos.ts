@@ -14,6 +14,7 @@ interface Item {
 })
 export class Productos {
 
+<<<<<<< HEAD
  productos: Item[] = [
   { nombre: 'Espada', poder: 10, precio: 100, rareza: 'comun' },
   { nombre: 'Escudo reforzado', poder: 15, precio: 150, rareza: 'raro' },
@@ -25,5 +26,13 @@ export class Productos {
   { nombre: 'Arco élfico', poder: 22, precio: 350, rareza: 'raro' },
   { nombre: 'Espada del rey caído', poder: 60, precio: 1200, rareza: 'legendario' }
 ];
+=======
+  productos: Item[] = [
+    { nombre: 'Espada', poder: 10, precio: 100, rareza: 'comun' },
+    { nombre: 'Escudo', poder: 15, precio: 150, rareza: 'raro' },
+    { nombre: 'Baston magico', poder: 25, precio: 300, rareza: 'epico' },
+    { nombre: 'Armadura legendaria', poder: 50, precio: 1000, rareza: 'legendario' }
+  ];
+>>>>>>> 3c94922a0bcf220d1d6604366ce27a4084c3d0b0
 
 }
